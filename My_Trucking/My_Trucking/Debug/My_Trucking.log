@@ -1,0 +1,4 @@
+﻿  Driver.cpp
+c:\users\manme\source\repos\my_trucking\my_trucking\driver.cpp(50): fatal error C1010: unexpected end of file while looking for precompiled header. Did you forget to add '#include "pch.h"' to your source?
+  My_Trucking.cpp
+  Generating Code...
