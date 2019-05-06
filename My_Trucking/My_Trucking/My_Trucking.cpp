@@ -3,6 +3,7 @@
 #include "Driver.h"
 #include "Load.h"
 
+
 void startup();
 
 int main()
@@ -15,6 +16,8 @@ int main()
 
 void startup() {
 	char res;
+	string name, c_name;
+	int age;
 	cout << cout.width(30) << "\bWelcome to MyTrucking" << endl;
 	cout << "A. To Register a Driver.\n";
 	cout << "B. To Check Driver Information.\n";
@@ -22,22 +25,32 @@ void startup() {
 	cin >> res;
 	res = toupper(res);
 	if (res == 'A') {
-		string name, company;
-		int age;
-		cout << "Enter Driver Name\n";
-		cin >> name;
-		cin.ignore();
-		cin.clear();
-		cin.ignore(' ', 10);
-		cout << "Enter Company Name\n";
-		cin >> company;
-		cin.ignore();
-		cin.clear();
-		cout << "Enter Driver Age\n";
+		cout << "Enter Driver Name\n>";
+		cin.get();
+		getline(cin, name);
+		cout << "Enter Driver Company\n>";
+		getline(cin, c_name);
+		cout << "Enter Driver Age\n>";
 		cin >> age;
-		cin.ignore();
-		cin.clear();
-		Driver driver = Driver(name, company, age);
+		Driver driver = Driver(name, c_name, age);
 		get_driver_information(driver);
+	}
+	if (res == 'B') {
+		cout << "Enter Driver's Name\n";
+		cin.get();
+		getline(cin, name);
+		ifstream driver_record;
+		driver_record.open("./drivers/" +name+".dat");
+		cout << "You Typed: " << name << endl;
+		cout << "Does Found: "<< driver_record.is_open() << endl;
+		if (not driver_record.is_open()) {
+			cout << "Driver Not Found\n";
+		}
+		else {
+			string line;
+			while (getline(driver_record, line)) {
+				cout << line << endl;
+			}
+		}
 	}
 }

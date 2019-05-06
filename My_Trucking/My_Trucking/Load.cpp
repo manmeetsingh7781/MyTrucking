@@ -16,20 +16,17 @@ void Load::setup_load()
 	value = worth;
 	cin.clear();
 	cin.ignore();
-	if (pickup_location == "" or drop_location == "") {
-		cout << "Please set the location\n";
-		string from, to;
-		cout << "From: ";
-		getline(cin, from);
-		cin.clear();
-		cout << "To: ";
-		getline(cin, to);
-		set_location(from, to);
-	}
 }
 
 // Load Location
-void Load::set_location(string from, string to) {
+void Load::set_location() {
+	cout << "Please set the location\n";
+	string from, to;
+	cout << "From: ";
+	getline(cin, from);
+	cin.clear();
+	cout << "To: ";
+	getline(cin, to);
 	pickup_location = from;
 	drop_location = to;
 }
