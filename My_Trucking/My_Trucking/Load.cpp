@@ -4,29 +4,37 @@
 
 
 // Initilization the load
-void Load::setup_load()
+Load::Load()
 {
-	string types;
-	int weight, due, worth;
-	cout << "Enter the load Type, Weight, Due in(Days), and Money Amount\n";
-	cin >> types >> weight >> due >> worth;
-	load_type = types;
-	load_weight = weight;
-	due_in = due;
-	value = worth;
-	cin.clear();
-	cin.ignore();
+	string temp;
+	cout << "Enter the load Type: ";
+	cin.get();
+	getline(cin, load_type);
+	cout << "Enter the load Name: ";
+	getline(cin, load_name);
+	cout << "Weight: ";
+	cin >> load_weight;
+	cout << "Due in(Days): ";
+	cin >> due_in;
+	cin.get();
+	cout << "Worth ($): ";
+	cin >> value;
+	cout << "From: ";
+	cin.get();
+	getline(cin, pickup_location);
+	cout << "To: ";
+	getline(cin, drop_location);
+	cout << "======= Load Ready Details ======= \n";
+	cout << endl << "LOAD TYPE: " << load_type
+		<< endl << "LOAD NAME: " << load_name
+		<< endl << "LOAD WEIGHT: " << load_weight
+		<< endl << "DUE IN: " << due_in << " DAY(s)"
+		<< endl << "WORTH: $" << value
+		<< endl << "PICKUP LOCATION: " << pickup_location
+		<< endl << "DROP-OFF LOCATION: " << drop_location
+		<< endl;
 }
 
-// Load Location
-void Load::set_location() {
-	cout << "Please set the location\n";
-	string from, to;
-	cout << "From: ";
-	getline(cin, from);
-	cin.clear();
-	cout << "To: ";
-	getline(cin, to);
-	pickup_location = from;
-	drop_location = to;
+void Load::count_loads() {
+	
 }
