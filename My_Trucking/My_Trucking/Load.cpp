@@ -6,7 +6,7 @@
 // Initilization the load
 Load::Load()
 {
-	string temp;
+	string temp, status;
 	cout << "Enter the load Type: ";
 	cin.get();
 	getline(cin, load_type);
@@ -24,6 +24,8 @@ Load::Load()
 	getline(cin, pickup_location);
 	cout << "To: ";
 	getline(cin, drop_location);
+	if (isDone != 0) status = "True";
+	else status = "False";
 	cout << "======= Load Ready Details ======= \n";
 	cout << endl << "LOAD TYPE: " << load_type
 		<< endl << "LOAD NAME: " << load_name
@@ -32,9 +34,10 @@ Load::Load()
 		<< endl << "WORTH: $" << value
 		<< endl << "PICKUP LOCATION: " << pickup_location
 		<< endl << "DROP-OFF LOCATION: " << drop_location
+		<< endl << "STATUS: " << status
 		<< endl;
 }
 
-void Load::count_loads() {
-	
+void Load::setStatus(Load myLoad, bool status) {
+	myLoad.isDone = status;
 }
