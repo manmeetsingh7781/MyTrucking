@@ -1,0 +1,16 @@
+Setup Driver Profile:
+  •	Name
+  •	Age
+  •	Truck & Trailer number
+  •	Has Picked up any load yet? If not, then it can able to pick one
+
+Load:
+  •	Name, type, worth, due in, pickup from and drop-off.
+  •	Is Done or not
+  •	Who is the driver
+
+General:
+  •	Show all drivers Name
+  •	Can choose driver
+  •	Show all, pending, done loads
+  •	
