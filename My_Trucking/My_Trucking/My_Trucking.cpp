@@ -46,7 +46,6 @@ void startup() {
 			cout << "Enter Driver Age\n>";
 			cin >> age;
 			Driver driver = Driver(name, c_name, age);
-			get_driver_information(driver);
 		}
 		else if (res == 'B') {
 			cout << "Enter Driver's Name\n";
@@ -60,9 +59,13 @@ void startup() {
 			}
 			else {
 				string line;
+				for (spacer = 0; spacer < 10; spacer++)	cout << endl;
+				cout << "===========Driver Details==========\n";
 				while (getline(driver_record, line)) {
 					cout << line << endl;
 				}
+				for (spacer = 0; spacer < 5; spacer++)	cout << endl;
+
 			}
 		}
 		else if (res == 'C') {
@@ -71,8 +74,8 @@ void startup() {
 			counter = atoi(get_loads_details("all").c_str());
 			string line;
 			ofstream loads, all_loads;
-
-			Load new_load = Load();
+			Load new_load;
+			new_load.Set_Load();
 			loads.open("./loads/" + new_load.load_name + ".dat");
 			all_loads.open("./loads/all_loads.dat");
 			if (new_load.isDone != 0) status = "True";
@@ -99,8 +102,9 @@ void startup() {
 			cout << "Enter Load Name\n>";
 			cin.get();
 			getline(cin, name);
-			ifstream driver_file;
-			driver_file.open("./loads/" + name + ".dat");
+			ifstream load_file;
+			load_file.open("./loads/" + name + ".dat");
+			if (not load_file.is_open()) cout << "Load Not Found\n";
 		}
 	}
 }

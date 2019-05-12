@@ -3,9 +3,7 @@
 #include "Load.h"
 
 
-// Initilization the load
-Load::Load()
-{
+void Load::Set_Load() {
 	string temp, status;
 	cout << "Enter the load Type: ";
 	cin.get();
@@ -37,7 +35,6 @@ Load::Load()
 		<< endl << "STATUS: " << status
 		<< endl;
 }
-
 void Load::setStatus(Load myLoad, bool status) {
 	myLoad.isDone = status;
 }
